@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:movie_review_app/app/movie_review_app.dart';
 
 import 'package:movie_review_app/main.dart';
 
