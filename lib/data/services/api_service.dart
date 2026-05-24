@@ -15,7 +15,7 @@ class ApiService {
     final response = await http.get(
       url,
       headers: {
-        'Authorization': ?AppStrings.authorizationToken,
+        'Authorization': 'Bearer ${AppStrings.authorizationToken}',
         'accept': 'application/json',
       },
     );
@@ -39,7 +39,7 @@ class ApiService {
     final response = await http.get(
       url,
       headers: {
-        'Authorization': ?AppStrings.authorizationToken,
+        'Authorization': 'Bearer ${AppStrings.authorizationToken}',
         'accept': 'application/json',
       },
     );
@@ -70,7 +70,7 @@ class ApiService {
     final response = await http.get(
       url,
       headers: {
-        'Authorization': ?AppStrings.authorizationToken,
+        'Authorization': 'Bearer ${AppStrings.authorizationToken}',
         'accept': 'application/json',
       },
     );

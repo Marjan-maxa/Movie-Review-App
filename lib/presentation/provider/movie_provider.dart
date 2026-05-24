@@ -24,7 +24,7 @@ class MovieProvider extends ChangeNotifier{
       _movies=movies;
       notifyListeners();
     }catch(e){
-      _errorMessage='Failed to fetch trending movies${e.toString}';
+      _errorMessage='Failed to fetch trending movies: ${e.toString()}';
       notifyListeners();
     }finally{
       _isLoading=false;
