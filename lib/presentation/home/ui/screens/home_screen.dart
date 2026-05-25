@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:movie_review_app/core/constants/app_colors.dart';
+import 'package:movie_review_app/presentation/home/ui/screens/search_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../provider/movie_provider.dart';
@@ -37,17 +38,21 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           Image.asset('assets/CINEPHILER.png'),
           const SizedBox(width: 170),
-          CircleAvatar(
-            backgroundColor: Colors.white,
-            child: IconButton(
-              style: IconButton.styleFrom(
-                backgroundColor: AppColors.accent,
-              ),
-              onPressed: () {},
-              icon: const Icon(
-                Icons.search,
-                color: Colors.black,
-              ),
+          IconButton(
+            style: IconButton.styleFrom(
+              backgroundColor: AppColors.accent,
+            ),
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SearchScreen(),
+                ),
+              );
+            },
+            icon: const Icon(
+              Icons.search,
+              color: Colors.black,
             ),
           ),
           const SizedBox(width: 16),
@@ -87,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MovieDetailsScreen(),
+                        builder: (context) => MovieDetailsScreen(movie: movieProvider.movies[index],),
                       ),
                     );
                   },
@@ -100,4 +105,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
- // 1:2:48 after start

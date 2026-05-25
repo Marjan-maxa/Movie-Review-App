@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:movie_review_app/data/model/movie_model.dart';
 import 'package:movie_review_app/data/services/api_service.dart';
 
 import '../../domain/entities/movie.dart';
@@ -9,8 +10,8 @@ class MovieProvider extends ChangeNotifier{
   List<Movie> get movies => _movies;
   List<Movie> _searchResults = [];
   List<Movie> get searchResults => _searchResults;
-  Map<String, dynamic> _movieDetails = {};
-  Map<String, dynamic> get movieDetails => _movieDetails;
+   MovieModel? _movieDetails ;
+  MovieModel? get movieDetails => _movieDetails;
   bool _isLoading=false;
   bool get isLoading => _isLoading;
   String? _errorMessage;
@@ -42,16 +43,21 @@ class MovieProvider extends ChangeNotifier{
     } catch (e) {
       _errorMessage = 'Failed to search movies: ${e.toString()}';
       notifyListeners();
-    }
+    }finally{
+      _isLoading = false;
+    notifyListeners();
   }
-  Future<Map<String, dynamic>> fetchMovieDetails(int movieId) async {
+  }
+  Future<MovieModel?> fetchMovieDetails(int movieId) async {
     _isLoading = true;
     notifyListeners();
     try {
       final details = await _apiService.getMovieDetails(movieId);
-      _movieDetails=details;
+      print('Api Response :${details}');
+      _movieDetails=MovieModel.fromJson(details);
       notifyListeners();
     } catch (e) {
+      print('error Message ${e}');
       _errorMessage = 'Failed to fetch movie details: ${e.toString()}';
       notifyListeners();
     } finally {
@@ -59,7 +65,7 @@ class MovieProvider extends ChangeNotifier{
       notifyListeners();
     }
     return _movieDetails;
-  }
+    }
+
 }
 
-//35:08 start again

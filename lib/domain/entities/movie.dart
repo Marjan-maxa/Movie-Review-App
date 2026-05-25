@@ -7,6 +7,7 @@ class Movie {
   final double voteAverage;
   final String releaseDate;
   final List<int> genreIds;
+  final int ?runtime;
 
   Movie({
     required this.id,
@@ -16,6 +17,6 @@ class Movie {
     required this.backdropPath,
     required this.voteAverage,
     required this.releaseDate,
-    required this.genreIds,
+    required this.genreIds, required this.runtime,
   });
 }

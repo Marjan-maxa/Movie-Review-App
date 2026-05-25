@@ -18,9 +18,9 @@ final VoidCallback onTap;
           borderRadius: BorderRadius.circular(16), // বর্ডার রেডিয়াস
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.2), // শ্যাডোর রঙ
-              blurRadius: 5, // শ্যাডোর ছড়ানো
-              offset: const Offset(0, 3), // শ্যাডোর পজিশন (x, y)
+              color: Colors.black.withOpacity(0.2),
+              blurRadius: 5,
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -51,7 +51,7 @@ final VoidCallback onTap;
                     movie.title,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: AppColors.textSecondary,
+                      color: AppColors.accent,
                       fontSize: 16,
                     ),
                     maxLines: 1,
